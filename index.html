@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Web Components 0.1</title>
+    <meta charset="utf-8" />
+    <script>
+      this.customElements ||
+        document.write(
+          '<script src="//unpkg.com/document-register-element"><\x2fscript>'
+        );
+    </script>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <my-navigation></my-navigation>
+    
+    <star-rating value="3"></star-rating>
+
+    <script type="module" src="components/index.js"></script>
+  </body>
+</html>

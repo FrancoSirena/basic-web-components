@@ -1,0 +1,53 @@
+:host {
+  --star-selected: #faf21b;
+  --star-default: #bdc6c7;
+  width: 6em;
+  height: 1.5em;
+  display: block;
+  overflow: hidden;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.container {
+  cursor: pointer;
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.container span {
+  color: var(--star-default);
+}
+
+.container:hover .top {
+  display: none;
+}
+
+:host(:not([disabled])) .container:hover .bottom {
+  display: block;
+}
+
+:host([disabled]) .container {
+  cursor: inherit;
+}
+
+:host([disabled]) .container .top {
+  display: block;
+}
+
+.container .top .selected {
+  color: var(--star-selected);
+}
+
+.container .bottom {
+  direction: rtl;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container .bottom > span:hover,
+.container .bottom > span:hover ~ span {
+  color: var(--star-selected);
+}

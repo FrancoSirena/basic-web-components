@@ -1,0 +1,110 @@
+:host {
+  --drawer-width: 80%;
+  --drawer-max-width: 400px;
+  --drawer-z: 1000;
+  --drawer-background: #FFF;
+  --drawer-opened-color: rgba(0, 0, 0, 0.25);
+  --drawer-shadow: 1px 0 3px rgba(51,51,51,0.25);
+  --title-background: #f1f1f1;
+  --title-color: #111;
+  --title-font-size: 1.3em;
+}
+
+:host([theme="red"]) {
+  --title-background: rgb(175, 48, 48);
+}
+
+:host([theme="blue"]) {
+  --title-background: rgb(11, 62, 155);
+  --title-color: #fff;
+}
+
+:host([backdrop="false"]) .frame.open {
+  pointer-events: none;;
+  background-color: inherit;
+}
+
+:host([backdrop="false"]) .frame.open .container {
+  pointer-events: auto;
+}
+
+
+.frame {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: background-color 300ms ease;
+  pointer-events: none;
+  z-index: var(--drawer-z);
+}
+
+.container {
+  width: var(--drawer-width);
+  max-width: var(--drawer-max-width);
+  background: var(--drawer-background);
+  height: 100%;
+  transform: translateX(-100%);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform, opacity 400ms ease-in;
+  box-shadow: var(--drawer-shadow);
+}
+
+.frame.open .container {
+  transform: none;
+  opacity: 1;
+}
+
+.frame.open {
+  pointer-events: auto;
+  background-color: var(--drawer-opened-color);
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  min-height: 2em;
+  background-color: var(--title-background);
+  color: var(--title-color);
+  font-size: var(--title-font-size);
+}
+
+.title .title-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+}
+
+.content {
+  padding: 16px;
+}
+
+.close {
+  flex-basis: 100px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  border: none;
+  background-color: var(--title-background);
+  color: var(--title-color);
+}
+
+.navigation::slotted(a) {
+  font-size: 1.2em;
+  display: block;
+  text-decoration: none;
+  line-height: 1.5em;
+  border-bottom: 1px solid #f1f1;
+  color:#666;
+}
+
+.navigation::slotted(a:hover) {
+  color: var(--title-background);
+}

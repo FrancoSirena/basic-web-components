@@ -1,0 +1,19 @@
+{
+  "name": "web-components-franco",
+  "version": "1.0.0",
+  "description": "Some simple web components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ."
+  },
+  "keywords": [
+    "web-components",
+    "vanilla-js"
+  ],
+  "author": "Franco Sirena",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}

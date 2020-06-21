@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Web Components 0.1</title>
+    <meta charset="utf-8" />
+    <script>
+      this.customElements ||
+        document.write(
+          '<script src="//unpkg.com/document-register-element"><\x2fscript>'
+        );
+    </script>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <my-navigation></my-navigation>
+    <button onclick="deleteMe();">Delete me</button>
+    <button is="fr-button" onclick="addMe();">Add Me</button>
+    <div id="bla-list">
+      <fr-custom demo="bla">Bla</fr-custom>
+    </div>
+    <button onclick="changeData();">Change Data</button>
+    <fr-table state="simple"></fr-table>
+
+    <script src="faker.js"></script>
+    <script type="module" src="components/index.js"></script>
+  </body>
+</html>
